@@ -2,6 +2,7 @@ package com.example.board.board.controller;
 
 import com.example.board.board.dto.BoardDto;
 import com.example.board.board.service.BoardService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,7 @@ public class BoardController {
     }
 
     @RequestMapping("/board/openBoardWrite.do")
-    public String openBoardWrite() throws Exception {
+    public String openBoardWrite() throws Exception{
         return "/board/boardWrite";
     }
 
@@ -38,7 +39,7 @@ public class BoardController {
     }
 
     @RequestMapping("/board/openBoardDetail.do")
-    public ModelAndView openBoardDetail(@RequestParam int boardIdx) throws Exception {
+    public ModelAndView openBoardDetail(@RequestParam int boardIdx) throws Exception{
         ModelAndView mv = new ModelAndView("/board/boardDetail");
 
         BoardDto board = boardService.selectBoardDetail(boardIdx);
@@ -48,13 +49,13 @@ public class BoardController {
     }
 
     @RequestMapping("/board/updateBoard.do")
-    public String updateBoard(BoardDto board) throws Exception {
+    public String updateBoard(BoardDto board) throws Exception{
         boardService.updateBoard(board);
         return "redirect:/board/openBoardList.do";
     }
 
     @RequestMapping("/board/deleteBoard.do")
-    public String deleteBoard(int boardIdx) throws Exception {
+    public String deleteBoard(int boardIdx) throws Exception{
         boardService.deleteBoard(boardIdx);
         return "redirect:/board/openBoardList.do";
     }
