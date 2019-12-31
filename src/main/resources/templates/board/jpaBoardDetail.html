@@ -64,7 +64,7 @@
 
         $("#list").on("click", function(){
             /* 여기 */
-            location.href = "/board/";
+            location.href = "/jpa/board/";
         });
 
         $("#edit").on("click", function(){
@@ -72,7 +72,7 @@
             $("#method").val("put");
 
             var frm = $("#frm")[0];
-            frm.action = "/board/"+boardIdx;
+            frm.action = "/jpa/board/"+boardIdx;
             frm.submit();
         });
 
@@ -81,7 +81,7 @@
             $("#method").val("delete");
 
             var frm = $("#frm")[0];
-            frm.action = "/board/"+boardIdx;
+            frm.action = "/jpa/board/"+boardIdx;
             frm.submit();
         });
     });
